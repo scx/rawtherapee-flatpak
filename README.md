@@ -51,6 +51,8 @@ $ flatpak install "flathub" "org.gnome.Sdk//3.32"
 $ flatpak install "flathub" "org.gnome.Platform//3.32"
 ```
 
+Clone this repository, then checkout the right branch.
+
 ### Build
 
 ```
@@ -69,11 +71,13 @@ $ flatpak-builder --run "build" "com.rawtherapee.RawTherapee.yaml" "sh"
 $ flatpak-builder --run "build" "com.rawtherapee.RawTherapee.yaml" "rawtherapee"
 ```
 
-### Install
+### Create repo
 
 ```
 $ flatpak-builder --repo="repo" --force-clean "build" "com.rawtherapee.RawTherapee.yaml"
 ```
+
+### Install
 
 ```
 $ flatpak --user remote-add --no-gpg-verify "rawtherapee" "repo"
@@ -99,7 +103,23 @@ $ flatpak --user uninstall "com.rawtherapee.RawTherapee"
 $ flatpak --user remote-delete "rawtherapee"
 ```
 
-See also: [Building your first Flatpak](http://docs.flatpak.org/en/latest/first-build.html)
+### Build single-file bundle
+
+```
+$ flatpak build-bundle "repo" "rawtherapee.flatpak" "com.rawtherapee.RawTherapee" --runtime-repo="https://flathub.org/repo/flathub.flatpakrepo"
+```
+
+### Install single-file bundle
+
+If you have already [installed](#install) the package, you have to [uninstall](#uninstall) it before continuing.
+
+```
+$ flatpak --user install "rawtherapee.flatpak"
+```
+
+See also:
+* [Building your first Flatpak](http://docs.flatpak.org/en/latest/first-build.html)
+* [Single-file bundles](http://docs.flatpak.org/en/latest/single-file-bundles.html#single-file-bundles)
 
 ## FAQ
 
