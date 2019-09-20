@@ -1,6 +1,6 @@
 app-id: com.rawtherapee.RawTherapee
 runtime: org.gnome.Platform
-runtime-version: '3.32'
+runtime-version: '3.34'
 sdk: org.gnome.Sdk
 command: rawtherapee
 rename-desktop-file: rawtherapee.desktop
@@ -25,17 +25,6 @@ finish-args:
   # OpenGL access
   - --device=dri
 modules:
-  - mm-common.yaml
-  - libsigc++.yaml
-  - cairomm.yaml
-  - glibmm.yaml
-  - pangomm.yaml
-  - atkmm.yaml
-  - gtkmm.yaml
-  - lensfun.yaml
-  - exiv2.yaml
-  - libiptcdata.yaml
-  - fftw3f.yaml
   - RawTherapee.yaml
 cleanup:
   - /include

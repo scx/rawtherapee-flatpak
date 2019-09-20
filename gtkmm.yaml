@@ -13,3 +13,10 @@ sources:
       - cp -p /usr/share/automake-*/config.{sub,guess} "build/";
 post-install:
   - install -p -D -m 0644 "COPYING" -t "${FLATPAK_DEST}/share/licenses/gtkmm/";
+modules:
+  - mm-common.yaml
+  - libsigc++.yaml
+  - cairomm.yaml
+  - glibmm.yaml
+  - pangomm.yaml
+  - atkmm.yaml
