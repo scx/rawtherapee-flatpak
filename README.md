@@ -133,6 +133,7 @@ Yes, of course! By default, it will try to use GIMP. It prefers the flatpak pack
  * `gimp` - Use GIMP from the flatpak if available, or from the host otherwise.
  * `gimp-flatpak` - Use GIMP from the flatpak.
  * `gimp-host` - Use GIMP from the host.
+
 You can use a custom command as well:
  * `flatpak-spawn --host flatpak run org.gimp.GIMP` - Use GIMP (or any other editor that has access to the `/tmp` directory from the host) from the flatpak.
  * `flatpak-spawn --host gimp` - Use GIMP (or any other editor) from the host.

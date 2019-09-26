@@ -1,0 +1,12 @@
+diff --git a/rtgui/editorpanel.cc b/rtgui/editorpanel.cc
+index 6aab153a1..f023ebd76 100644
+--- a/rtgui/editorpanel.cc
++++ b/rtgui/editorpanel.cc
+@@ -2079,6 +2079,7 @@ bool EditorPanel::idle_sentToGimp (ProgressConnector<int> *pc, rtengine::IImagef
+ {
+     img->free ();
+     int errore = pc->returnValue();
++    setProgressState(false);
+     delete pc;
+ 
+     if (!errore) {

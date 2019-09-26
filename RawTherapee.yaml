@@ -9,8 +9,10 @@ sources:
     sha256: dbd7c7cf7488fb97c520821eee2c745291637644b391e3ec0ed3a29701f1a9c7
   # Update XDG files
   # Update screenshots in appdata file
+  # Add developer_name tag
   # https://github.com/Beep6581/RawTherapee/pull/5460
   # https://github.com/Beep6581/RawTherapee/commit/c656fa0fc768c8fb8a82ca48e9a68b138bab370b
+  # https://github.com/Beep6581/RawTherapee/pull/5478
   - type: patch
     path: RawTherapee-5.7-xdg.patch
   # Quote parameters correctly for Linux when spawning (#5463)
@@ -24,6 +26,10 @@ sources:
   # https://github.com/Beep6581/RawTherapee/pull/5473/commits/ca42b7b726f901c18153efd3206f1e4fe597b769
   - type: patch
     path: RawTherapee-5.7-custom-editor.patch
+  # Fix progress bar of invoking external editor
+  # https://github.com/Beep6581/RawTherapee/issues/5475
+  - type: patch
+    path: RawTherapee-5.7-progress-bar.patch
   # Allow to use GIMP from the host as an external tool to edit photos
   - type: script
     commands:

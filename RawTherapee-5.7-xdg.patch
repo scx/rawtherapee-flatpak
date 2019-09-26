@@ -1,7 +1,7 @@
 From e33bee7ceab5e5f8bfbd01c3d26c60f463cc0088 Mon Sep 17 00:00:00 2001
 From: scx <scx.mail@gmail.com>
 Date: Thu, 19 Sep 2019 23:40:49 +0200
-Subject: [PATCH 1/5] Update desktop file
+Subject: [PATCH 1/6] Update desktop file
 
  - Update Version entry (Keyword key was introduced in 1.1)
  - Fix GenericName
@@ -42,7 +42,7 @@ index 233a737b6..9356c5a2d 100644
 From 633eab24c288b2a8933af23b88d057f7df2ed0f3 Mon Sep 17 00:00:00 2001
 From: scx <scx.mail@gmail.com>
 Date: Thu, 19 Sep 2019 23:44:17 +0200
-Subject: [PATCH 2/5] Update AppData file
+Subject: [PATCH 2/6] Update AppData file
 
  - Fix description (<p> tag)
  - Remove keywords (should be obtained from desktop file)
@@ -107,7 +107,7 @@ index 0e5dfef50..564821cb4 100644
 From 2415511b7011434b6f088fb46df8f4737b9e717b Mon Sep 17 00:00:00 2001
 From: scx <scx.mail@gmail.com>
 Date: Thu, 19 Sep 2019 23:55:31 +0200
-Subject: [PATCH 3/5] Update desktop file
+Subject: [PATCH 3/6] Update desktop file
 
  - Change order of categories (Main Category before Additional Categories)
 ---
@@ -130,7 +130,7 @@ index 9356c5a2d..c6c675c4d 100644
 From 581e46c7b053b69ebc488011f43e7290870fa287 Mon Sep 17 00:00:00 2001
 From: scx <scx.mail@gmail.com>
 Date: Thu, 19 Sep 2019 23:59:00 +0200
-Subject: [PATCH 4/5] Fix AppData file
+Subject: [PATCH 4/6] Fix AppData file
 
  - Remove unreachable screenshot URL
 ---
@@ -156,7 +156,7 @@ index 564821cb4..41a669532 100644
 From c656fa0fc768c8fb8a82ca48e9a68b138bab370b Mon Sep 17 00:00:00 2001
 From: Morgan Hardwood <bugs@londonlight.org>
 Date: Mon, 23 Sep 2019 01:21:52 +0200
-Subject: [PATCH 5/5] Update screenshots in appdata file
+Subject: [PATCH 5/6] Update screenshots in appdata file
 
 ---
  com.rawtherapee.RawTherapee.appdata.xml | 20 ++++++++++++--------
@@ -196,3 +196,26 @@ index 41a669532..3a55109ba 100644
          </screenshot>
      </screenshots>
      <update_contact>contactus@rawtherapee.com</update_contact>
+
+From 4943af4743b3b6048f99fa56c858cd8585405d67 Mon Sep 17 00:00:00 2001
+From: scx <scx.mail@gmail.com>
+Date: Fri, 27 Sep 2019 00:13:06 +0200
+Subject: [PATCH 6/6] Update AppData file
+
+Add developer_name tag
+---
+ com.rawtherapee.RawTherapee.appdata.xml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/com.rawtherapee.RawTherapee.appdata.xml b/com.rawtherapee.RawTherapee.appdata.xml
+index 3a55109ba..5b1a7f1ba 100644
+--- a/com.rawtherapee.RawTherapee.appdata.xml
++++ b/com.rawtherapee.RawTherapee.appdata.xml
+@@ -6,6 +6,7 @@
+     <summary xml:lang="cs">Program pro konverzi a zpracování digitálních raw fotografií</summary>
+     <summary xml:lang="fr">Logiciel de conversion et de traitement de photos numériques de format raw (but de capteur)</summary>
+     <summary xml:lang="pl">Zaawansowany program do wywoływania zdjęć typu raw</summary>
++    <developer_name>The RawTherapee Team</developer_name>
+     <translation type="gettext">rawtherapee</translation>
+     <description>
+         <p>RawTherapee is a powerful, cross-platform raw photo processing program. It is written mostly in C++ using a GTK+ front-end. It uses a patched version of dcraw for reading raw files, with an in-house solution which adds the highest quality support for certain camera models unsupported by dcraw and enhances the accuracy of certain raw files already supported by dcraw. It is notable for the advanced control it gives the user over the demosaicing and development process.</p>
