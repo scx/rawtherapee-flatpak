@@ -17,11 +17,18 @@ finish-args:
   - --socket=pulseaudio
   # Filesystem access
   - --filesystem=host
+  # Access to temporary files
+  # Share data between RawTherapee and external editors, especially GIMP
+  - --filesystem=/tmp
   # Dconf access
   - --filesystem=xdg-run/dconf
   - --filesystem=~/.config/dconf:ro
   - --talk-name=ca.desrt.dconf
   - --env=DCONF_USER_CONFIG_DIR=.config/dconf
+  # Host commands access
+  # for flatpak-spawn
+  # Allow to use GIMP from the host as an external tool to edit photos
+  - --talk-name=org.freedesktop.Flatpak
   # OpenGL access
   - --device=dri
 modules:

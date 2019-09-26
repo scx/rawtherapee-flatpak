@@ -7,10 +7,45 @@ sources:
   - type: archive
     url: https://github.com/Beep6581/RawTherapee/releases/download/5.7/rawtherapee-5.7.tar.xz
     sha256: dbd7c7cf7488fb97c520821eee2c745291637644b391e3ec0ed3a29701f1a9c7
+  # Update XDG files
+  # Update screenshots in appdata file
   # https://github.com/Beep6581/RawTherapee/pull/5460
+  # https://github.com/Beep6581/RawTherapee/commit/c656fa0fc768c8fb8a82ca48e9a68b138bab370b
   - type: patch
     path: RawTherapee-5.7-xdg.patch
+  # Quote parameters correctly for Linux when spawning (#5463)
+  # https://github.com/Beep6581/RawTherapee/issues/5463
+  # https://github.com/Beep6581/RawTherapee/commit/5b72cc0dd3ce0288408ee0a1b0785f7c603a059e
+  - type: patch
+    path: RawTherapee-5.7-shell_quote.patch
+  # Fix launch of custom editor
+  # https://github.com/Beep6581/RawTherapee/issues/5472
+  # https://github.com/Beep6581/RawTherapee/pull/5473
+  # https://github.com/Beep6581/RawTherapee/pull/5473/commits/ca42b7b726f901c18153efd3206f1e4fe597b769
+  - type: patch
+    path: RawTherapee-5.7-custom-editor.patch
+  # Allow to use GIMP from the host as an external tool to edit photos
+  - type: script
+    commands:
+      - flatpak-spawn --host "gimp" "${@}";
+    dest-filename: gimp-host
+  # Allow to use GIMP from the flatpak as an external tool to edit photos
+  - type: script
+    commands:
+      - flatpak-spawn --host flatpak run "org.gimp.GIMP" "${@}";
+    dest-filename: gimp-flatpak
+  # Allow to use GIMP as an external tool to edit photos
+  - type: script
+    commands:
+      - |
+        if flatpak-spawn --host flatpak info "org.gimp.GIMP" >/dev/null 2>/dev/null; then
+          gimp-flatpak "${@}";
+        else
+          gimp-host "${@}";
+        fi;
+    dest-filename: gimp
 post-install:
+  - install -p -D -m 0755 "../gimp"{,-flatpak,-host} -t "${FLATPAK_DEST}/bin/";
   - xmlstarlet ed --inplace -d "/component/provides/binary[text()='rawtherapee-cli']" "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.appdata.xml";
   - install -p -D -m 0644 "../LICENSE.txt" -t "${FLATPAK_DEST}/share/licenses/rawtherapee/";
 modules:

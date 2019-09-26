@@ -1,7 +1,7 @@
 From e33bee7ceab5e5f8bfbd01c3d26c60f463cc0088 Mon Sep 17 00:00:00 2001
 From: scx <scx.mail@gmail.com>
 Date: Thu, 19 Sep 2019 23:40:49 +0200
-Subject: [PATCH 1/4] Update desktop file
+Subject: [PATCH 1/5] Update desktop file
 
  - Update Version entry (Keyword key was introduced in 1.1)
  - Fix GenericName
@@ -42,7 +42,7 @@ index 233a737b6..9356c5a2d 100644
 From 633eab24c288b2a8933af23b88d057f7df2ed0f3 Mon Sep 17 00:00:00 2001
 From: scx <scx.mail@gmail.com>
 Date: Thu, 19 Sep 2019 23:44:17 +0200
-Subject: [PATCH 2/4] Update AppData file
+Subject: [PATCH 2/5] Update AppData file
 
  - Fix description (<p> tag)
  - Remove keywords (should be obtained from desktop file)
@@ -107,7 +107,7 @@ index 0e5dfef50..564821cb4 100644
 From 2415511b7011434b6f088fb46df8f4737b9e717b Mon Sep 17 00:00:00 2001
 From: scx <scx.mail@gmail.com>
 Date: Thu, 19 Sep 2019 23:55:31 +0200
-Subject: [PATCH 3/4] Update desktop file
+Subject: [PATCH 3/5] Update desktop file
 
  - Change order of categories (Main Category before Additional Categories)
 ---
@@ -130,7 +130,7 @@ index 9356c5a2d..c6c675c4d 100644
 From 581e46c7b053b69ebc488011f43e7290870fa287 Mon Sep 17 00:00:00 2001
 From: scx <scx.mail@gmail.com>
 Date: Thu, 19 Sep 2019 23:59:00 +0200
-Subject: [PATCH 4/4] Fix AppData file
+Subject: [PATCH 4/5] Fix AppData file
 
  - Remove unreachable screenshot URL
 ---
@@ -152,3 +152,47 @@ index 564821cb4..41a669532 100644
          <screenshot>
              <caption>HDR DNG of a misty morning in the countryside</caption>
              <image width="1920" height="1080">https://rawtherapee.com/images/screenshots/rt540_1.jpg</image>
+
+From c656fa0fc768c8fb8a82ca48e9a68b138bab370b Mon Sep 17 00:00:00 2001
+From: Morgan Hardwood <bugs@londonlight.org>
+Date: Mon, 23 Sep 2019 01:21:52 +0200
+Subject: [PATCH 5/5] Update screenshots in appdata file
+
+---
+ com.rawtherapee.RawTherapee.appdata.xml | 20 ++++++++++++--------
+ 1 file changed, 12 insertions(+), 8 deletions(-)
+
+diff --git a/com.rawtherapee.RawTherapee.appdata.xml b/com.rawtherapee.RawTherapee.appdata.xml
+index 41a669532..3a55109ba 100644
+--- a/com.rawtherapee.RawTherapee.appdata.xml
++++ b/com.rawtherapee.RawTherapee.appdata.xml
+@@ -33,17 +33,21 @@
+         <binary>rawtherapee-cli</binary>
+     </provides>
+     <screenshots>
+-        <screenshot>
+-            <caption>HDR DNG of a misty morning in the countryside</caption>
+-            <image width="1920" height="1080">https://rawtherapee.com/images/screenshots/rt540_1.jpg</image>
++        <screenshot type="default">
++            <caption>Color correction</caption>
++            <image width="1920" height="1080">https://rawtherapee.com/images/screenshots/rt57_drosera_rotundifolia.png</image>
+         </screenshot>
+         <screenshot>
+-            <caption>Straight-out-of-camera vs RawTherapee</caption>
+-            <image width="1920" height="1080">https://rawtherapee.com/images/screenshots/rt540_2.jpg</image>
++            <caption>File browser</caption>
++            <image width="1920" height="1080">https://rawtherapee.com/images/screenshots/rt57_file_browser.png</image>
+         </screenshot>
+-        <screenshot>
+-            <caption>RawTherapee using the Auto-Matched Tone Curve tool</caption>
+-            <image width="1920" height="1080">https://rawtherapee.com/images/screenshots/rt540_3.jpg</image>
++        <screenshot type="default">
++            <caption>High dynamic range compression</caption>
++            <image width="1920" height="1080">https://rawtherapee.com/images/screenshots/rt57_field_sunset.png</image>
++        </screenshot>
++        <screenshot type="default">
++            <caption>Developing a film negative</caption>
++            <image width="1920" height="1080">https://rawtherapee.com/images/screenshots/rt57_film_negative.png</image>
+         </screenshot>
+     </screenshots>
+     <update_contact>contactus@rawtherapee.com</update_contact>

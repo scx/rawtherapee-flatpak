@@ -1,0 +1,23 @@
+From ca42b7b726f901c18153efd3206f1e4fe597b769 Mon Sep 17 00:00:00 2001
+From: scx <scx.mail@gmail.com>
+Date: Thu, 26 Sep 2019 04:21:28 +0200
+Subject: [PATCH] Fix launch of custom editor
+
+Fixes Beep6581/RawTherapee#5472
+---
+ rtgui/extprog.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rtgui/extprog.cc b/rtgui/extprog.cc
+index 95c1c937d..00ea07713 100644
+--- a/rtgui/extprog.cc
++++ b/rtgui/extprog.cc
+@@ -334,7 +334,7 @@ bool ExtProgStore::openInCustomEditor (const Glib::ustring& fileName)
+ 
+ #else
+ 
+-    const auto cmdLine = Glib::ustring("\"") + options.customEditorProg + "\" " + Glib::shell_quote(fileName);
++    const auto cmdLine = options.customEditorProg + Glib::ustring(" ") + Glib::shell_quote(fileName);
+     return spawnCommandAsync (cmdLine);
+ 
+ #endif
