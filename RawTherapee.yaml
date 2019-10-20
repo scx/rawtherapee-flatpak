@@ -10,9 +10,11 @@ sources:
   # Update XDG files
   # Update screenshots in appdata file
   # Add developer_name tag
+  # Add StartupNotify entry
   # https://github.com/Beep6581/RawTherapee/pull/5460
   # https://github.com/Beep6581/RawTherapee/commit/c656fa0fc768c8fb8a82ca48e9a68b138bab370b
   # https://github.com/Beep6581/RawTherapee/pull/5478
+  # https://github.com/Beep6581/RawTherapee/pull/5504
   - type: patch
     path: RawTherapee-5.7-xdg.patch
   # Quote parameters correctly for Linux when spawning (#5463)
