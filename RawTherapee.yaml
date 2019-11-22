@@ -13,7 +13,6 @@ sources:
   # Add StartupNotify entry
   # https://github.com/Beep6581/RawTherapee/pull/5460
   # https://github.com/Beep6581/RawTherapee/commit/c656fa0fc768c8fb8a82ca48e9a68b138bab370b
-  # https://github.com/Beep6581/RawTherapee/pull/5478
   # https://github.com/Beep6581/RawTherapee/pull/5504
   - type: patch
     path: RawTherapee-5.7-xdg.patch
@@ -54,7 +53,12 @@ sources:
     dest-filename: gimp
 post-install:
   - install -p -D -m 0755 "../gimp"{,-flatpak,-host} -t "${FLATPAK_DEST}/bin/";
-  - xmlstarlet ed --inplace -d "/component/provides/binary[text()='rawtherapee-cli']" "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.appdata.xml";
+  # https://github.com/Beep6581/RawTherapee/pull/5478
+  - |
+    for f in "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.appdata.xml"; do
+      xmlstarlet ed --inplace -d "/component/provides/binary[text()='rawtherapee-cli']" "${f}";
+      xmlstarlet ed --inplace -s '/component' -t elem -n 'developer_name' -v 'The RawTherapee Team' "${f}";
+    done;
   - install -p -D -m 0644 "../LICENSE.txt" -t "${FLATPAK_DEST}/share/licenses/rawtherapee/";
 modules:
   - gtkmm.yaml
