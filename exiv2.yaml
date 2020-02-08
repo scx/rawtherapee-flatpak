@@ -10,13 +10,6 @@ sources:
   - type: archive
     url: https://github.com/Exiv2/exiv2/archive/v0.27.2.tar.gz
     sha256: 3dbcaf01fbc5b98d42f091d1ff0d4b6cd9750dc724de3d9c0d113948570b2934
-  # https://bugzilla.redhat.com/show_bug.cgi?id=888769
-  # https://src.fedoraproject.org/rpms/exiv2/blob/d9f0bddda398c8413c456c41549b3f14b10f3ae5/f/0068-xmpsdk-Build-with-DBanAllEntityUsage-1.patch
-  #- type: patch
-  #  path: exiv2-0.27-xmpsdk-Build-with-DBanAllEntityUsage-1.patch
-  # https://src.fedoraproject.org/rpms/exiv2/blob/d9f0bddda398c8413c456c41549b3f14b10f3ae5/f/0069-xmpsdk-Fix-compile-warnings-in-ExpatAdapter.cpp.patch
-  #- type: patch
-  #  path: exiv2-0.27-xmpsdk-Fix-compile-warnings-in-ExpatAdapter.cpp.patch
 post-install:
   - install -p -D -m 0644 "../COPYING" -t "${FLATPAK_DEST}/share/licenses/exiv2/";
 cleanup:
