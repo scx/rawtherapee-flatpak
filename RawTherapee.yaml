@@ -35,11 +35,13 @@ sources:
 post-install:
   - install -p -D -m 0755 "../gimp"{,-flatpak,-host} -t "${FLATPAK_DEST}/bin/";
   - gtk-update-icon-cache --force --ignore-theme-index "${FLATPAK_DEST}/share/icons/hicolor";
-  # https://github.com/Beep6581/RawTherapee/pull/5478
   - |
     for f in "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.appdata.xml"; do
-      xmlstarlet ed --inplace -d "/component/provides/binary[text()='rawtherapee-cli']" "${f}";
+      # Add the developer_name tag
+      # https://github.com/Beep6581/RawTherapee/pull/5478
       xmlstarlet ed --inplace -s '/component' -t elem -n 'developer_name' -v 'The RawTherapee Team' "${f}";
+      # rawtherapee-cli is not accessible from the host
+      xmlstarlet ed --inplace -d "/component/provides/binary[text()='rawtherapee-cli']" "${f}";
     done;
   - install -p -D -m 0644 "../LICENSE.txt" -t "${FLATPAK_DEST}/share/licenses/rawtherapee/";
 modules:
