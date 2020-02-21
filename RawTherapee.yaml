@@ -42,6 +42,13 @@ post-install:
       xmlstarlet ed --inplace -s '/component' -t elem -n 'developer_name' -v 'The RawTherapee Team' "${f}";
       # rawtherapee-cli is not accessible from the host
       xmlstarlet ed --inplace -d "/component/provides/binary[text()='rawtherapee-cli']" "${f}";
+      # The provides tag describes the public interfaces this program provides
+      # The binary tag is a child tag of the provides tag
+      # It provides the name of a binary installed into a location in PATH
+      # However, flatpak doesn't export any binaries on the host
+      # https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html#tag-provides
+      xmlstarlet ed --inplace -d '/component/provides/binary' "${f}";
+      xmlstarlet ed --inplace -d '/component/provides[not(./*) and (not(./text()) or normalize-space(./text())="")]' "${f}";
     done;
   - install -p -D -m 0644 "../LICENSE.txt" -t "${FLATPAK_DEST}/share/licenses/rawtherapee/";
 modules:
